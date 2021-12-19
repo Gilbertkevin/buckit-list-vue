@@ -1,17 +1,22 @@
 <template>
-  <div class="home">
+  <div class="Buckit">
     <h1>{{ message }}</h1>
+
+    <div v-for="category in categories">
+      <h3> {{ category.category_title }} </h3>
+      <button @click="$router.push(`/category/${category.id}`)">View List</button>
+      <br />
+    </div>
     <div>
+      <hr>
+      <h3>Add a Category</h3>
       <form v-on:submit.prevent="submit()">
         <input type="text" v-model="newCategory.category_title"/>
         <input type="submit" value="Submit" />
       </form>
       
     </div>
-    <div v-for="category in categories">
-      <h3> {{ category.category_title }} </h3>
-      <br />
-    </div>
+    
   </div>
 </template>
 
@@ -36,7 +41,7 @@ import axios from "axios";
         console.log('getting categories...')
         axios.get(`/categories`).then(response => {
           console.log(response.data);
-          this.category = response.data;
+          this.categories = response.data;
         })
       },
       submit: function () {

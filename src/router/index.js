@@ -4,6 +4,8 @@ import Home from '../views/Home.vue'
 import Signup from '../views/Signup.vue'
 import Buckit from '../views/Buckit.vue'
 import Login from '../views/Login.vue'
+import Category from '../views/Category.vue'
+import Item from '../views/Item.vue'
 
 Vue.use(VueRouter)
 
@@ -35,6 +37,16 @@ const routes = [
     path: '/login',
     name: 'Login',
     component: Login
+  },
+  {
+    path: '/category/:id',
+    name: 'Category',
+    component: Category
+  },
+  {
+    path: '/item',
+    name: 'Item',
+    component: Item
   },
 ]
 
