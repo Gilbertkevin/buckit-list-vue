@@ -1,20 +1,33 @@
 <template>
   <div class="Buckit">
-    <h1>{{ message }}</h1>
+    <!-- Main -->
+    <div id="main" v-for="category in categories">
+      <!-- One -->
+        <section id="one">
+          <!-- <div class="content"> -->
+            <div class="inner">
+              <header class="major">
+                <h2>{{ category.category_title }}</h2>
+              </header>
+            </div>
+            <ul class="actions">
+              <li><a @click="$router.push(`/category/${category.id}`)" class="button">View List</a></li>
+            </ul>
+          <!-- </div> -->
+        </section>
+    </div>
 
-    <div v-for="category in categories">
+    <!-- <div v-for="category in categories">
       <h3> {{ category.category_title }} </h3>
       <button @click="$router.push(`/category/${category.id}`)">View List</button>
       <br />
-    </div>
-    <div>
-      <hr>
+    </div> -->
+    <div class="inner">
       <h3>Add a Category</h3>
       <form v-on:submit.prevent="submit()">
         <input type="text" v-model="newCategory.category_title"/>
         <input type="submit" value="Submit" />
       </form>
-      
     </div>
     
   </div>

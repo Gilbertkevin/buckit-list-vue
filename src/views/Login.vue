@@ -1,5 +1,6 @@
 <template>
   <div class="login">
+    <div class="inner">
     <form v-on:submit.prevent="submit()">
       <h1>Login</h1>
       <ul>
@@ -9,12 +10,15 @@
         <label>Email:</label>
         <input type="email" v-model="newSessionParams.email" />
       </div>
+      <br />
       <div>
         <label>Password:</label>
         <input type="password" v-model="newSessionParams.password" />
       </div>
+      <br />
       <input type="submit" value="Submit" />
     </form>
+    </div>
   </div>
 </template>
 

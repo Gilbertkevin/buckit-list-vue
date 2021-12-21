@@ -1,13 +1,25 @@
 <template>
-  <div class="Category">
-    <h3> {{ category.category_title }} </h3>
-    <div v-for="item in category.items">
-      <p><b><i>{{ item.item_title }}</i></b></p>
-      <p v-for="note in item.notes"> {{ note.description }}</p>
-      <img v-for="image in item.images" v-bind:src="image.url">
-      <br />
-    </div>
-    <div>
+
+  <div id="main">
+  <!-- One -->
+    <section id="two" class="spotlights">
+      <section v-for="item in category.items">
+        <img v-for="image in item.images" v-bind:src="image.url" class="image">
+          <div class="content">
+            <div class="inner">
+              <header class="major">
+                <h3>{{item.item_title }}</h3>
+              </header>
+                <p v-for="note in item.notes">{{ note.description}}</p>
+                  <ul class="actions">
+                    <li><a href="generic.html" class="button">Learn more</a></li>
+                  </ul>
+            </div>
+          </div>
+      </section>
+    </section>
+
+    <div class="inner">
       <hr>
       <h3>Add an Item</h3>
       <form v-on:submit.prevent="submit()">
@@ -21,8 +33,19 @@
       </form>
       
     </div>
-    
   </div>
+
+  <!-- <div class="Category">
+    <h3> {{ category.category_title }} </h3>
+    <div v-for="item in category.items">
+      <p><b><i>{{ item.item_title }}</i></b></p>
+      <p v-for="note in item.notes"> {{ note.description }}</p>
+      <img v-for="image in item.images" v-bind:src="image.url">
+      <br />
+    </div> -->
+    
+    
+  <!-- </div> -->
 </template>
 
 <style></style>
@@ -56,22 +79,8 @@ import axios from "axios";
         var params = {category_id: this.category.id, note: this.newNote.description, image: this.newImage.url, title: this.newItem.item_title}
         axios.post("/items", params).then((response) => {
           console.log(response.data);
-          // this.$router.push(`/category/${this.$route.params.id}`)
-        window.location.reload()
+          window.location.reload()
         });
-        // var params = {category_id: this.category.id};
-        // axios.post("/notes", this.newNote, {params}).then((response) => {
-        //   console.log(response.data);
-        //   this.$router.push(`/categories/${this.$route.params.id}`)
-        // });
-        // var params = {category_id: this.category.id};
-        // axios.post("/images", this.newImage, {params}).then((response) => {
-        //   console.log(response.data);
-        //   this.$router.push(`/categories/${this.$route.params.id}`)
-        // })
-        // .catch((error) => {
-        //   this.errors = error.response.data.errors;
-        // });
       },
     },
   };
