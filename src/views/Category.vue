@@ -12,7 +12,7 @@
               </header>
                 <p v-for="note in item.notes">{{ note.description}}</p>
                   <ul class="actions">
-                    <li><a href="generic.html" class="button">Learn more</a></li>
+                    <li><a href="/generic.html" class="button">I did this!</a></li>
                   </ul>
             </div>
           </div>

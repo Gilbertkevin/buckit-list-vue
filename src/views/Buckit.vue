@@ -1,4 +1,5 @@
 <template>
+
   <div class="Buckit">
     <!-- Main -->
     <div id="main" v-for="category in categories">
@@ -9,11 +10,11 @@
               <header class="major">
                 <h2>{{ category.category_title }}</h2>
               </header>
-            </div>
+            <!-- </div> -->
             <ul class="actions">
               <li><a @click="$router.push(`/category/${category.id}`)" class="button">View List</a></li>
             </ul>
-          <!-- </div> -->
+          </div>
         </section>
     </div>
 
@@ -60,7 +61,8 @@ import axios from "axios";
       submit: function () {
         axios.post("/categories", this.newCategory).then((response) => {
           console.log(response.data);
-          this.$router.push("/categories")
+          // this.$router.push(`/categories/${this.$route.params.id}`)
+          window.location.reload()
         })
         .catch((error) => {
           this.errors = error.response.data.errors;

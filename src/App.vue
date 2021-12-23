@@ -8,19 +8,20 @@
       <!-- Note: The "styleN" class below should match that of the banner element. -->
         <header id="header" class="alt style2">
           <a href="/login" class="logo"><strong>BuckIt</strong></a>
+          <nav>
+            <a href="#menu">Menu</a>
+          </nav>
         </header>
 
       <!-- Menu -->
         <nav id="menu">
           <ul class="links">
             <li><a href="/buckit">Buckit</a></li>
-            <li><a href="/login">Login</a></li>
-            <li><a href="/signup">Sign Up</a></li>
             <li><a href="/category">Categories</a></li>
           </ul>
           <ul class="actions stacked">
-            <li><a href="#" class="button primary fit">Get Started</a></li>
-            <li><a href="#" class="button fit">Log In</a></li>
+            <li><a href="/login" class="button primary fit">Get Started</a></li>
+            <li><a href="/signup" class="button fit">Log In</a></li>
           </ul>
         </nav>
 
